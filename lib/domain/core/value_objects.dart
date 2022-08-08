@@ -2,11 +2,12 @@ import 'dart:html';
 
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_notes/domain/core/failures.dart';
 
 @immutable
 abstract class ValueObject<T> {
   const ValueObject();
-  Either<ValueObject<T>, T> get value;
+  Either<ValueFailure<T>, T> get value;
 
   @override
   bool operator ==(Object o) {
