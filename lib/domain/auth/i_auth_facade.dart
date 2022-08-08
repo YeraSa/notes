@@ -1,13 +1,15 @@
+import 'package:dartz/dartz.dart';
+import 'package:flutter_notes/domain/auth/auth_failures.dart';
 import 'package:flutter_notes/domain/auth/value_objects.dart';
 
 abstract class IAuthFacade {
-  Future<void> registerWithEmailAndPassword({
+  Future<Either<AuthFailures, Unit>> registerWithEmailAndPassword({
     required EmailAddress emailAddress,
     required Password password,
   });
-  Future<void> signInWithEmailAndPassword({
+  Future<Either<AuthFailures, Unit>> signInWithEmailAndPassword({
     required EmailAddress emailAddress,
     required Password password,
   });
-  Future<void> signInWithGoogle();
+  Future<Either<AuthFailures, Unit>> signInWithGoogle();
 }
